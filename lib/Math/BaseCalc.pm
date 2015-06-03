@@ -65,6 +65,7 @@ sub from_base {
   my $result = 0;
   my $trans = $self->{trans};
   while (length $str) {
+    ## no critic
     return undef unless exists $trans->{substr($str,0,1)};
     # For large numbers, force result to be an integer (not a float)
     $result = int($result*$dignum + $trans->{chop $str});
@@ -195,15 +196,9 @@ currently undefined.
 
 =back
 
-=head1 QUESTIONS
-
-The '64' digit set is meant to be useful for Base64 encoding.  I took
-it from the MIME::Base64.pm module.  Does it look right?  It's sure in
-a strange order.
-
 =head1 AUTHOR
 
-Ken Williams, ken@forum.swarthmore.edu
+Ken Williams, kwilliams@cpan.org
 
 =head1 COPYRIGHT
 
